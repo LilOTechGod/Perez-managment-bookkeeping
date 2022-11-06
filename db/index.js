@@ -29,7 +29,9 @@ class join {
         return this.connection.promise().query("INSERT INTO department SET ?", department)
     }
     // update an empolyee role
-    
+    updateEmployee () {
+        return this.connection.promise().query("")
+    }
 }
 
 module.exports = new join(connection);
