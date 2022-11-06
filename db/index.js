@@ -21,7 +21,15 @@ class join {
         return this.connection.promise().query("INSERT INTO department SET ?", department)
     }
     // add a role method
+    addRole (department) {
+        return this.connection.promise().query("INSERT INTO department SET ?", department)
+    }
     // add an employee method
+    addEmployee (department) {
+        return this.connection.promise().query("INSERT INTO department SET ?", department)
+    }
     // update an empolyee role
     
 }
+
+module.exports = new join(connection);

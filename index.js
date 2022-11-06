@@ -1,6 +1,6 @@
 const inquirer = require("inquirer");
 const cTable = require('console.table');
-
+const join = require('./db/index');
 
 
   const questions = ()=> {
@@ -35,5 +35,8 @@ const cTable = require('console.table');
     questions();
 
     function viewDepartments() {
-      
+      join.findAllDepartments().then(([response]) => {
+        console.table(response);
+        questions();
+      }) 
     } 
