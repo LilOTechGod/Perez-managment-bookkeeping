@@ -1,6 +1,6 @@
-const connection = require ("./connection.js");
+const connection = require ("../config/connection.js");
 
-class join {
+class Join {
     constructor (connection) {
         this.connection = connection
     }
@@ -22,16 +22,16 @@ class join {
     }
     // add a role method
     addRole (department) {
-        return this.connection.promise().query("INSERT INTO department SET ?", department)
+        return this.connection.promise().query("INSERT INTO role SET ?", department)
     }
     // add an employee method
     addEmployee (department) {
-        return this.connection.promise().query("INSERT INTO department SET ?", department)
+        return this.connection.promise().query("INSERT INTO employee SET ?", department)
     }
     // update an empolyee role
-    updateEmployee () {
-        return this.connection.promise().query("")
+    updateEmployee (employeeId, managerId) {
+        return this.connection.query("UPDATE employee SET manager_id = ? WHERE id = ?", [managerId, employeeId])
     }
 }
 
-module.exports = new join(connection);
+module.exports = new Join(connection);
